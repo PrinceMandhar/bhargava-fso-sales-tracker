@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bhargava FSO Sales Tracker</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- LOGIN PAGE -->
+
+<div id="loginPage" class="login-box">
+
+<h2>FSO Login</h2>
+
+<input type="text" id="name" placeholder="Enter FSO Name">
+
+<input type="password" id="emp" placeholder="Enter EMP Code">
+
+<button onclick="login()">Login</button>
+
+</div>
+
+
+<!-- SALES ENTRY PAGE -->
+
+<div id="appPage" class="app-box">
+
+<h2>FSO Sales Entry</h2>
+
+<div class="fso-info">
+
+<p><b>FSO NAME:</b> <span id="fsoName"></span></p>
+
+<p><b>EMP CODE:</b> <span id="empCode"></span></p>
+
+<p><b>HQ:</b> <span id="hq"></span></p>
+
+</div>
+
+<table>
+
+<tr>
+<th>S.No</th>
+<th>Product</th>
+<th>Target</th>
+<th>Achieved</th>
+<th>Add Units</th>
+</tr>
+
+<tr><td>1</td><td>SPONDIN DROPS 30ML</td><td>576</td><td class="achieved">0</td><td><input class="unit"></td></tr>
+<tr><td>2</td><td>TUMORIN 30ML</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
+<tr><td>3</td><td>GAS OFF TAB</td><td>288</td><td class="achieved">0</td><td><input class="unit"></td></tr>
+<tr><td>4</td><td>DIACARDIAC GOLD PLUS</td><td>400</td><td class="achieved">0</td><td><input class="unit"></td></tr>
+<tr><td>5</td><td>MT 30ML</td><td>1000</td><td class="achieved">0</td><td><input class="unit"></td></tr>
+<tr><td>6</td><td>ACISET SYRUP</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
+<tr><td>7</td><td>LUMBORAL TAB</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
+<tr><td>8</td><td>ARTHARAL TAB</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
+<tr><td>9</td><td>NEURO FIT FORTE</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
+<tr><td>10</td><td>OSTEO STRONG</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
+<tr><td>11</td><td>FRESH GEL</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
+<tr><td>12</td><td>Kidflame</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
+<tr><td>13</td><td>FERROGLOB</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
+<tr><td>14</td><td>SCIAATI</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
+<tr><td>15</td><td>OVINORM</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
+<tr><td>16</td><td>Menifib</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
+<tr><td>17</td><td>WARTIN</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
+<tr><td>18</td><td>AGUE NIL</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
+<tr><td>19</td><td>Shakoon</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
+<tr><td>20</td><td>PILTIN</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
+
+</table>
+
+<button class="submit-btn" onclick="submitSales()">Submit Sales</button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -77,3 +77,65 @@ await fetch(API_URL+"?action=submit&row="+userRow+"&data="+JSON.stringify(arr));
 alert("Sales Updated");
 
 }
+function updateDeficit(){
+
+let targets=document.querySelectorAll(".target")
+let achieved=document.querySelectorAll(".achieved")
+let deficit=document.querySelectorAll(".deficit")
+
+for(let i=0;i<targets.length;i++){
+
+let t=parseInt(targets[i].innerText)
+let a=parseInt(achieved[i].innerText)
+
+let d=t-a
+
+deficit[i].innerText=d
+
+if(a<t){
+
+achieved[i].style.color="red"
+
+}else{
+
+achieved[i].style.color="green"
+
+}
+
+}
+
+}
+
+
+
+function submitSales(){
+
+let entry=document.querySelectorAll(".entry")
+let achieved=document.querySelectorAll(".achieved")
+
+for(let i=0;i<entry.length;i++){
+
+let add=parseInt(entry[i].value || 0)
+let old=parseInt(achieved[i].innerText)
+
+let total=old+add
+
+achieved[i].innerText=total
+
+entry[i].value=""
+
+}
+
+updateDeficit()
+
+alert("Sales Updated")
+
+}
+
+
+
+window.onload=function(){
+
+updateDeficit()
+
+}

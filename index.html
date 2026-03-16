@@ -31,7 +31,7 @@
 
 <!-- SALES ENTRY PAGE -->
 
-<div id="appPage" class="app-box">
+<div id="appPage" class="app-box" style="display:none">
 
 <h2>FSO Sales Entry</h2>
 
@@ -52,31 +52,53 @@
 <th>Product</th>
 <th>Target</th>
 <th>Achieved</th>
-<th>Add Units</th>
+<th>Deficit</th>
+<th>Entry</th>
 </tr>
 
-<tr><td>1</td><td>SPONDIN DROPS 30ML</td><td>576</td><td class="achieved">0</td><td><input class="unit"></td></tr>
-<tr><td>2</td><td>TUMORIN 30ML</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
-<tr><td>3</td><td>GAS OFF TAB</td><td>288</td><td class="achieved">0</td><td><input class="unit"></td></tr>
-<tr><td>4</td><td>DIACARDIAC GOLD PLUS</td><td>400</td><td class="achieved">0</td><td><input class="unit"></td></tr>
-<tr><td>5</td><td>MT 30ML</td><td>1000</td><td class="achieved">0</td><td><input class="unit"></td></tr>
-<tr><td>6</td><td>ACISET SYRUP</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
-<tr><td>7</td><td>LUMBORAL TAB</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
-<tr><td>8</td><td>ARTHARAL TAB</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
-<tr><td>9</td><td>NEURO FIT FORTE</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
-<tr><td>10</td><td>OSTEO STRONG</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
-<tr><td>11</td><td>FRESH GEL</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
-<tr><td>12</td><td>Kidflame</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
-<tr><td>13</td><td>FERROGLOB</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
-<tr><td>14</td><td>SCIAATI</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
-<tr><td>15</td><td>OVINORM</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
-<tr><td>16</td><td>Menifib</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
-<tr><td>17</td><td>WARTIN</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
-<tr><td>18</td><td>AGUE NIL</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
-<tr><td>19</td><td>Shakoon</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
-<tr><td>20</td><td>PILTIN</td><td>144</td><td class="achieved">0</td><td><input class="unit"></td></tr>
+<tr><td>1</td><td>SPONDIN DROPS 30ML</td><td class="target">576</td><td class="achieved">0</td><td class="deficit">576</td><td><input type="number" class="entry"></td></tr>
+
+<tr><td>2</td><td>TUMORIN 30ML</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">144</td><td><input type="number" class="entry"></td></tr>
+
+<tr><td>3</td><td>GAS OFF TAB</td><td class="target">288</td><td class="achieved">0</td><td class="deficit">288</td><td><input type="number" class="entry"></td></tr>
+
+<tr><td>4</td><td>DIACARDIAC GOLD PLUS</td><td class="target">400</td><td class="achieved">0</td><td class="deficit">400</td><td><input type="number" class="entry"></td></tr>
+
+<tr><td>5</td><td>MT 30ML</td><td class="target">1000</td><td class="achieved">0</td><td class="deficit">1000</td><td><input type="number" class="entry"></td></tr>
+
+<tr><td>6</td><td>ACISET SYRUP</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">144</td><td><input type="number" class="entry"></td></tr>
+
+<tr><td>7</td><td>LUMBORAL TAB</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">144</td><td><input type="number" class="entry"></td></tr>
+
+<tr><td>8</td><td>ARTHARAL TAB</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">144</td><td><input type="number" class="entry"></td></tr>
+
+<tr><td>9</td><td>NEURO FIT FORTE</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">144</td><td><input type="number" class="entry"></td></tr>
+
+<tr><td>10</td><td>OSTEO STRONG</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">144</td><td><input type="number" class="entry"></td></tr>
+
+<tr><td>11</td><td>FRESH GEL</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">144</td><td><input type="number" class="entry"></td></tr>
+
+<tr><td>12</td><td>Kidflame</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">144</td><td><input type="number" class="entry"></td></tr>
+
+<tr><td>13</td><td>FERROGLOB</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">144</td><td><input type="number" class="entry"></td></tr>
+
+<tr><td>14</td><td>SCIAATI</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">144</td><td><input type="number" class="entry"></td></tr>
+
+<tr><td>15</td><td>OVINORM</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">144</td><td><input type="number" class="entry"></td></tr>
+
+<tr><td>16</td><td>Menifib</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">144</td><td><input type="number" class="entry"></td></tr>
+
+<tr><td>17</td><td>WARTIN</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">144</td><td><input type="number" class="entry"></td></tr>
+
+<tr><td>18</td><td>AGUE NIL</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">144</td><td><input type="number" class="entry"></td></tr>
+
+<tr><td>19</td><td>Shakoon</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">144</td><td><input type="number" class="entry"></td></tr>
+
+<tr><td>20</td><td>PILTIN</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">144</td><td><input type="number" class="entry"></td></tr>
 
 </table>
+
+<br>
 
 <button class="submit-btn" onclick="submitSales()">Submit Sales</button>
 

@@ -21,7 +21,6 @@
 <h2>FSO Login</h2>
 
 <input type="text" id="name" placeholder="Enter FSO Name">
-
 <input type="password" id="emp" placeholder="Enter EMP Code">
 
 <button onclick="login()">Login</button>
@@ -33,16 +32,15 @@
 
 <div id="appPage" class="app-box" style="display:none">
 
+<!-- TOP LEFT LOGO -->
+<img src="logo-sales.jpg" class="logo">
+
 <h2>FSO Sales Entry</h2>
 
 <div class="fso-info">
-
 <p><b>FSO NAME:</b> <span id="fsoName"></span></p>
-
 <p><b>EMP CODE:</b> <span id="empCode"></span></p>
-
 <p><b>HQ:</b> <span id="hq"></span></p>
-
 </div>
 
 <table>
@@ -55,6 +53,9 @@
 <th>Deficit</th>
 <th>Entry</th>
 </tr>
+
+<!-- KEEP YOUR SAME 20 PRODUCTS -->
+<!-- NO CHANGE BELOW -->
 
 <tr><td>1</td><td>SPONDIN DROPS 30ML</td><td class="target">576</td><td class="achieved">0</td><td class="deficit">576</td><td><input type="number" class="entry"></td></tr>
 
@@ -101,6 +102,9 @@
 <br>
 
 <button class="submit-btn" onclick="submitSales()">Submit Sales</button>
+
+<!-- BOTTOM IMAGE -->
+<img src="bottom-sales.webp" class="bottom-img">
 
 </div>
 

@@ -5,6 +5,42 @@ background:#f5f7fb;
 margin:0;
 padding:0;
 
+/* ✅ DESKTOP LOGIN BACKGROUND IMAGE */
+background-image: url("desktop-login.jpg");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+
+}
+
+
+/* ✅ MOBILE BACKGROUND IMAGE */
+@media(max-width:768px){
+
+body{
+background-image: url("phone-login.jpg");
+}
+
+.fso-info{
+
+flex-direction:column;
+gap:5px;
+text-align:center;
+
+}
+
+table{
+
+font-size:12px;
+
+}
+
+input.entry{
+
+width:50px;
+
+}
+
 }
 
 
@@ -192,28 +228,24 @@ background:#218838;
 
 
 
-/* MOBILE RESPONSIVE */
+/* ✅ SALES PAGE LOGO */
 
-@media(max-width:768px){
+.logo{
 
-.fso-info{
-
-flex-direction:column;
-gap:5px;
-text-align:center;
-
-}
-
-table{
-
-font-size:12px;
+position:absolute;
+top:10px;
+left:10px;
+width:120px;
 
 }
 
-input.entry{
 
-width:50px;
 
-}
+/* ✅ BOTTOM IMAGE */
+
+.bottom-img{
+
+width:100%;
+margin-top:20px;
 
 }

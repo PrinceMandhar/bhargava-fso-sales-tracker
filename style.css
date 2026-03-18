@@ -15,17 +15,30 @@ background-repeat: no-repeat;
 
 
 /* ✅ MOBILE BACKGROUND IMAGE */
-
 @media(max-width:768px){
 
-.fso-info{
-flex-direction:column;
-text-align:center;
+body{
+background-image: url("phone-login.jpg");
 }
 
-.logo{
-width:70px;
-margin-bottom:5px;
+.fso-info{
+
+flex-direction:column;
+gap:5px;
+text-align:center;
+
+}
+
+table{
+
+font-size:12px;
+
+}
+
+input.entry{
+
+width:50px;
+
 }
 
 }
@@ -108,13 +121,10 @@ margin-bottom:20px;
 
 /* FSO INFO */
 
-/* ✅ FSO INFO WITH LOGO LEFT + TEXT RIGHT */
-
 .fso-info{
 
 display:flex;
-align-items:center;
-gap:15px;
+justify-content:space-around;
 background:#f1f3f6;
 padding:10px;
 margin-bottom:20px;
@@ -122,18 +132,9 @@ border-radius:5px;
 
 }
 
-/* LOGO LEFT */
-.logo{
+.fso-info p{
 
-width:80px;
-flex-shrink:0;
-
-}
-
-/* TEXT RIGHT */
-.fso-text p{
-
-margin:2px 0;
+margin:0;
 font-size:14px;
 
 }

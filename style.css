@@ -4,7 +4,7 @@ font-family: Arial, Helvetica, sans-serif;
 margin:0;
 padding:0;
 
-/* ✅ DESKTOP BACKGROUND */
+/* ✅ DESKTOP */
 background-image: url("Website.jpg");
 background-size: cover;
 background-position: top left;
@@ -13,7 +13,7 @@ background-repeat: no-repeat;
 }
 
 
-/* ✅ LOGIN BOX (GLASS EFFECT) */
+/* ✅ LOGIN BOX */
 
 .login-box{
 
@@ -21,7 +21,6 @@ width:320px;
 padding:30px;
 
 background: transparent;
-
 border:2px solid rgba(255,255,255,0.6);
 backdrop-filter: blur(8px);
 
@@ -30,7 +29,6 @@ box-shadow:0 4px 20px rgba(0,0,0,0.2);
 
 text-align:center;
 
-/* CENTER */
 position:absolute;
 top:50%;
 left:50%;
@@ -69,7 +67,7 @@ background:#0056b3;
 }
 
 
-/* ✅ MAIN APP PAGE */
+/* ✅ APP PAGE */
 
 .app-box{
 width:95%;
@@ -114,18 +112,16 @@ th{
 background:#2f6fed;
 color:white;
 padding:10px;
-font-size:14px;
 }
 
 td{
 border:1px solid #ddd;
 padding:8px;
 text-align:center;
-font-size:13px;
 }
 
 
-/* ✅ ENTRY INPUT */
+/* ✅ ENTRY */
 
 input.entry{
 width:60px;
@@ -136,22 +132,7 @@ text-align:center;
 }
 
 
-/* ✅ ACHIEVED */
-
-.achieved{
-font-weight:bold;
-}
-
-
-/* ✅ DEFICIT */
-
-.deficit{
-font-weight:bold;
-color:#555;
-}
-
-
-/* ✅ SUBMIT BUTTON */
+/* ✅ BUTTON */
 
 .submit-btn{
 margin-top:15px;
@@ -160,7 +141,6 @@ background:#28a745;
 border:none;
 color:white;
 border-radius:5px;
-font-size:15px;
 cursor:pointer;
 }
 
@@ -169,62 +149,45 @@ background:#218838;
 }
 
 
-/* ✅ SALES PAGE LOGO */
-
-.logo{
-position:absolute;
-top:10px;
-left:10px;
-width:120px;
-}
-
-
-/* ✅ BOTTOM IMAGE */
-
-.bottom-img{
-width:100%;
-margin-top:20px;
-}
-
-
-/* ✅ MOBILE RESPONSIVE */
+/* ✅ MOBILE FIX (MAIN PART) */
 
 @media(max-width:768px){
 
 body{
 
-/* 📱 MOBILE IMAGE */
 background-image: url("1773902708515.png");
 
-/* 🔥 FULL IMAGE SHOW */
-background-size: contain;
-background-position: center;
+/* 🔥 FULL HEIGHT COVER */
+background-size: cover;
+
+/* 🔥 LOGO SAFE */
+background-position: top center;
+
 background-repeat: no-repeat;
 
-/* ✅ EXTRA SPACE GREEN */
-background-color: #d4f5d0;
+/* ❌ no background color (no gap) */
+background-color: transparent;
 
 }
 
-/* 📱 LOGIN BOX SMALL */
+/* 📱 LOGIN SMALL */
 .login-box{
 width:80%;
 padding:15px;
 }
 
-/* 📱 INPUT SMALL */
+/* 📱 INPUT */
 .login-box input{
 padding:8px;
 font-size:13px;
 }
 
-/* 📱 BUTTON SMALL */
 .login-box button{
 padding:8px;
 font-size:14px;
 }
 
-/* 📱 FSO INFO */
+/* 📱 INFO */
 .fso-info{
 flex-direction:column;
 gap:5px;
@@ -236,7 +199,6 @@ table{
 font-size:12px;
 }
 
-/* 📱 INPUT ENTRY */
 input.entry{
 width:50px;
 }

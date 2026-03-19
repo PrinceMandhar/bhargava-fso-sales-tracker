@@ -13,26 +13,36 @@ background-repeat: no-repeat;
 
 }
 
-/* ✅ MOBILE BACKGROUND FIX (FULL IMAGE SHOW) */
 @media(max-width:768px){
 
 body{
+
 background-image: url("mobile.jpg");
 
-/* ❌ cover हटाओ */
-background-size: contain;
-
-/* center रखो */
-background-position: top center;
-
-/* repeat बंद */
+/* 🔥 AUTO FIT LOGIC */
+background-size: cover;          /* screen fill करेगा */
+background-position: center;     /* center align */
 background-repeat: no-repeat;
-
-/* scroll allow करो */
 background-attachment: scroll;
 
-/* background color add करो (blank space fill) */
-background-color: #ffffff;
+/* 👇 optional overlay for readability */
+background-color: rgba(255,255,255,0.3);
+background-blend-mode: lighten;
+
+}
+
+.fso-info{
+flex-direction:column;
+gap:5px;
+text-align:center;
+}
+
+table{
+font-size:12px;
+}
+
+input.entry{
+width:50px;
 }
 
 }

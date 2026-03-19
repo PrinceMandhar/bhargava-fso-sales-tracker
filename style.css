@@ -17,7 +17,21 @@ background-repeat: no-repeat;
 
 body{
 
+background-image: url("@media(max-width:768px){
+
+body{
+
 background-image: url("phone-login.jpg");
+
+/* 🔥 PERFECT FIT FOR PORTRAIT */
+background-size: contain;
+background-position: top center;
+background-repeat: no-repeat;
+background-color:#f5f7fb; /* blank space clean dikhe */
+
+}
+
+}");
 
 /* 🔥 PERFECT FIT FOR PORTRAIT */
 background-size: contain;

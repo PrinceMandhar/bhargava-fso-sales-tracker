@@ -5,7 +5,7 @@ background:#f5f7fb;
 margin:0;
 padding:0;
 
-/* ✅ DESKTOP LOGIN BACKGROUND IMAGE */
+/* ✅ DESKTOP BACKGROUND */
 background-image: url("Website.jpg");
 background-size: cover;
 background-position: center;
@@ -13,69 +13,40 @@ background-repeat: no-repeat;
 
 }
 
-@media(max-width:768px){
 
-body{
-
-background-image: url("@media(max-width:768px){
-
-body{
-
-background-image: url("phone-login.jpg");
-
-/* 🔥 PERFECT FIT FOR PORTRAIT */
-background-size: contain;
-background-position: top center;
-background-repeat: no-repeat;
-background-color:#f5f7fb; /* blank space clean dikhe */
-
-}
-
-}");
-
-/* 🔥 PERFECT FIT FOR PORTRAIT */
-background-size: contain;
-background-position: top center;
-background-repeat: no-repeat;
-background-color:#f5f7fb; /* blank space clean dikhe */
-
-}
-
-}
-
-/* LOGIN PAGE */
+/* ✅ LOGIN BOX CENTER FIX */
 
 .login-box{
 
 width:320px;
-margin:120px auto;
 padding:30px;
 background:white;
 border-radius:8px;
 box-shadow:0 4px 10px rgba(0,0,0,0.1);
 text-align:center;
 
+/* 🔥 CENTER PERFECT */
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+
 }
 
 .login-box h2{
-
 margin-bottom:20px;
-
 }
 
 .login-box input{
-
 width:90%;
 padding:10px;
 margin:10px 0;
 border:1px solid #ccc;
 border-radius:5px;
 font-size:14px;
-
 }
 
 .login-box button{
-
 width:100%;
 padding:10px;
 background:#007bff;
@@ -84,129 +55,98 @@ border:none;
 border-radius:5px;
 font-size:15px;
 cursor:pointer;
-
 }
 
 .login-box button:hover{
-
 background:#0056b3;
-
 }
 
 
-
-/* MAIN APP PAGE */
+/* ✅ MAIN APP PAGE */
 
 .app-box{
-
 width:95%;
 margin:30px auto;
 background:white;
 padding:20px;
 border-radius:8px;
 box-shadow:0 4px 10px rgba(0,0,0,0.08);
-
 }
 
 .app-box h2{
-
 text-align:center;
 margin-bottom:20px;
-
 }
 
 
-
-/* FSO INFO */
+/* ✅ FSO INFO */
 
 .fso-info{
-
 display:flex;
 justify-content:space-around;
 background:#f1f3f6;
 padding:10px;
 margin-bottom:20px;
 border-radius:5px;
-
 }
 
 .fso-info p{
-
 margin:0;
 font-size:14px;
-
 }
 
 
-
-/* TABLE */
+/* ✅ TABLE */
 
 table{
-
 width:100%;
 border-collapse:collapse;
-
 }
 
 th{
-
 background:#2f6fed;
 color:white;
 padding:10px;
 font-size:14px;
-
 }
 
 td{
-
 border:1px solid #ddd;
 padding:8px;
 text-align:center;
 font-size:13px;
-
 }
 
 
-
-/* ENTRY INPUT */
+/* ✅ ENTRY INPUT */
 
 input.entry{
-
 width:60px;
 padding:5px;
 border:1px solid #ccc;
 border-radius:4px;
 text-align:center;
-
 }
 
 
-
-/* ACHIEVED VALUE */
+/* ✅ ACHIEVED */
 
 .achieved{
-
 font-weight:bold;
-
 }
 
 
-
-/* DEFICIT */
+/* ✅ DEFICIT */
 
 .deficit{
-
 font-weight:bold;
 color:#555;
-
 }
 
 
-
-/* SUBMIT BUTTON */
+/* ✅ SUBMIT BUTTON */
 
 .submit-btn{
-
 margin-top:15px;
 padding:10px 25px;
 background:#28a745;
@@ -215,35 +155,65 @@ color:white;
 border-radius:5px;
 font-size:15px;
 cursor:pointer;
-
 }
 
 .submit-btn:hover{
-
 background:#218838;
-
 }
-
 
 
 /* ✅ SALES PAGE LOGO */
 
 .logo{
-
 position:absolute;
 top:10px;
 left:10px;
 width:120px;
-
 }
-
 
 
 /* ✅ BOTTOM IMAGE */
 
 .bottom-img{
-
 width:100%;
 margin-top:20px;
+}
+
+
+/* ✅ MOBILE RESPONSIVE */
+
+@media(max-width:768px){
+
+/* 📱 MOBILE BACKGROUND */
+body{
+background-image: url("phone-login.jpg");
+background-size: contain;
+background-position: top center;
+background-repeat: no-repeat;
+background-color:#f5f7fb;
+}
+
+/* 📱 LOGIN BOX */
+.login-box{
+width:90%;
+padding:20px;
+}
+
+/* 📱 FSO INFO */
+.fso-info{
+flex-direction:column;
+gap:5px;
+text-align:center;
+}
+
+/* 📱 TABLE */
+table{
+font-size:12px;
+}
+
+/* 📱 INPUT */
+input.entry{
+width:50px;
+}
 
 }

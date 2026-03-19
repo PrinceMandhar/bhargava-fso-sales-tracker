@@ -5,7 +5,7 @@ margin:0;
 padding:0;
 
 /* ✅ DESKTOP BACKGROUND */
-background-image: url("Website.jpg");
+background-image: url("imagefordestop.png");
 background-size: cover;
 background-position: top left;   /* 🔥 logo safe */
 background-repeat: no-repeat;

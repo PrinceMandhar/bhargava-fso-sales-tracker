@@ -7,7 +7,7 @@ padding:0;
 /* ✅ DESKTOP BACKGROUND */
 background-image: url("Website.jpg");
 background-size: cover;
-background-position: top left;   /* 🔥 logo safe */
+background-position: top left;
 background-repeat: no-repeat;
 
 }
@@ -196,20 +196,32 @@ body{
 /* 📱 MOBILE IMAGE */
 background-image: url("1773902708515.png");
 
-/* 🔥 FULL SCREEN COVER (NO WHITE SPACE) */
-background-size: cover;
-
-/* 🔥 LOGO SAFE (left top visible) */
-background-position: top left;
-
+/* 🔥 FULL IMAGE SHOW */
+background-size: contain;
+background-position: center;
 background-repeat: no-repeat;
+
+/* ✅ EXTRA SPACE GREEN */
+background-color: #d4f5d0;
 
 }
 
-/* 📱 LOGIN BOX */
+/* 📱 LOGIN BOX SMALL */
 .login-box{
-width:90%;
-padding:20px;
+width:80%;
+padding:15px;
+}
+
+/* 📱 INPUT SMALL */
+.login-box input{
+padding:8px;
+font-size:13px;
+}
+
+/* 📱 BUTTON SMALL */
+.login-box button{
+padding:8px;
+font-size:14px;
 }
 
 /* 📱 FSO INFO */
@@ -224,7 +236,7 @@ table{
 font-size:12px;
 }
 
-/* 📱 INPUT */
+/* 📱 INPUT ENTRY */
 input.entry{
 width:50px;
 }

@@ -17,32 +17,14 @@ background-repeat: no-repeat;
 
 body{
 
-background-image: url("1773902708515.png");
+background-image: url("phone-login.jpg");
 
-/* 🔥 AUTO FIT LOGIC */
-background-size: cover;          /* screen fill करेगा */
-background-position: center;     /* center align */
+/* 🔥 PERFECT FIT FOR PORTRAIT */
+background-size: contain;
+background-position: top center;
 background-repeat: no-repeat;
-background-attachment: scroll;
+background-color:#f5f7fb; /* blank space clean dikhe */
 
-/* 👇 optional overlay for readability */
-background-color: rgba(255,255,255,0.3);
-background-blend-mode: lighten;
-
-}
-
-.fso-info{
-flex-direction:column;
-gap:5px;
-text-align:center;
-}
-
-table{
-font-size:12px;
-}
-
-input.entry{
-width:50px;
 }
 
 }

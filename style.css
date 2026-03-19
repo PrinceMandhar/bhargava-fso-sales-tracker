@@ -13,37 +13,29 @@ background-repeat: no-repeat;
 
 }
 
-
-/* ✅ MOBILE BACKGROUND IMAGE */
+/* ✅ MOBILE BACKGROUND FIX (FULL IMAGE SHOW) */
 @media(max-width:768px){
 
 body{
 background-image: url("mobile.jpg");
-}
 
-.fso-info{
+/* ❌ cover हटाओ */
+background-size: contain;
 
-flex-direction:column;
-gap:5px;
-text-align:center;
+/* center रखो */
+background-position: top center;
 
-}
+/* repeat बंद */
+background-repeat: no-repeat;
 
-table{
+/* scroll allow करो */
+background-attachment: scroll;
 
-font-size:12px;
-
-}
-
-input.entry{
-
-width:50px;
-
+/* background color add करो (blank space fill) */
+background-color: #ffffff;
 }
 
 }
-
-
 
 /* LOGIN PAGE */
 

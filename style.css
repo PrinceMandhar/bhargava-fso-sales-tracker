@@ -7,7 +7,7 @@ padding:0;
 /* ✅ DESKTOP BACKGROUND */
 background-image: url("Website.jpg");
 background-size: cover;
-background-position: center;
+background-position: top left;   /* 🔥 logo safe */
 background-repeat: no-repeat;
 
 }
@@ -20,13 +20,9 @@ background-repeat: no-repeat;
 width:320px;
 padding:30px;
 
-/* ❌ white background हटाया */
 background: transparent;
 
-/* ✅ सिर्फ border */
 border:2px solid rgba(255,255,255,0.6);
-
-/* 🔥 GLASS EFFECT */
 backdrop-filter: blur(8px);
 
 border-radius:10px;
@@ -34,7 +30,7 @@ box-shadow:0 4px 20px rgba(0,0,0,0.2);
 
 text-align:center;
 
-/* 🔥 CENTER */
+/* CENTER */
 position:absolute;
 top:50%;
 left:50%;
@@ -42,35 +38,22 @@ transform:translate(-50%,-50%);
 
 }
 
-
-/* TEXT COLOR FIX */
 .login-box h2{
 margin-bottom:20px;
 color:white;
 }
 
-
-/* INPUT BOX (WHITE ही रहेंगे) */
-
 .login-box input{
-
 width:90%;
 padding:10px;
 margin:10px 0;
-
 border:1px solid #ccc;
 border-radius:5px;
-
 font-size:14px;
-background:white;   /* ✅ ये white रहेगा */
-
+background:white;
 }
 
-
-/* BUTTON */
-
 .login-box button{
-
 width:100%;
 padding:10px;
 background:#007bff;
@@ -79,7 +62,6 @@ border:none;
 border-radius:5px;
 font-size:15px;
 cursor:pointer;
-
 }
 
 .login-box button:hover{
@@ -90,14 +72,12 @@ background:#0056b3;
 /* ✅ MAIN APP PAGE */
 
 .app-box{
-
 width:95%;
 margin:30px auto;
 background:white;
 padding:20px;
 border-radius:8px;
 box-shadow:0 4px 10px rgba(0,0,0,0.08);
-
 }
 
 .app-box h2{
@@ -109,14 +89,12 @@ margin-bottom:20px;
 /* ✅ FSO INFO */
 
 .fso-info{
-
 display:flex;
 justify-content:space-around;
 background:#f1f3f6;
 padding:10px;
 margin-bottom:20px;
 border-radius:5px;
-
 }
 
 .fso-info p{
@@ -176,7 +154,6 @@ color:#555;
 /* ✅ SUBMIT BUTTON */
 
 .submit-btn{
-
 margin-top:15px;
 padding:10px 25px;
 background:#28a745;
@@ -185,7 +162,6 @@ color:white;
 border-radius:5px;
 font-size:15px;
 cursor:pointer;
-
 }
 
 .submit-btn:hover{
@@ -220,9 +196,12 @@ body{
 /* 📱 MOBILE IMAGE */
 background-image: url("1773902708515.png");
 
-/* 🔥 PERFECT FIT */
+/* 🔥 FULL SCREEN COVER (NO WHITE SPACE) */
 background-size: cover;
-background-position: center;
+
+/* 🔥 LOGO SAFE (left top visible) */
+background-position: top left;
+
 background-repeat: no-repeat;
 
 }

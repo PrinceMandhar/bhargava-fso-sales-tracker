@@ -1,10 +1,8 @@
 // GOOGLE APPS SCRIPT WEB APP URL
 const API_URL = "https://script.google.com/macros/s/AKfycbxjv6K3_Q7_gv7zy6N8bs4JhdpiDuqjiv8Mk1ZFfbJ1jVZvf9b67312-N28VwY3T98pIA/exec"
 
+
 let userRow=null;
-
-
-// LOGIN FUNCTION
 
 async function login(){
 
@@ -12,7 +10,6 @@ let name=document.getElementById("name").value
 let emp=document.getElementById("emp").value
 
 let res=await fetch(API_URL+"?action=login&name="+name+"&emp="+emp)
-
 let data=await res.json()
 
 if(data.status=="success"){
@@ -27,37 +24,46 @@ document.getElementById("empCode").innerText=data.emp
 document.getElementById("hq").innerText=data.hq
 
 loadAchieved(data.sales)
+loadStock(data.stock)
 
-}
-else{
-
+}else{
 alert("Invalid Login")
-
 }
 
 }
 
-
-
-// LOAD ACHIEVED VALUES FROM GOOGLE SHEET
 
 function loadAchieved(sales){
 
 let achieved=document.querySelectorAll(".achieved")
 
 for(let i=0;i<achieved.length;i++){
-
 achieved[i].innerText=sales[i] || 0
-
 }
 
 updateDeficit()
+}
+
+
+function loadStock(stock){
+
+let stockInputs=document.querySelectorAll(".stock")
+
+for(let i=0;i<stockInputs.length;i++){
+stockInputs[i].value=stock[i] || 0
+}
 
 }
 
 
+function enableStockEdit(btn){
+let row=btn.parentElement.parentElement
+let stockInput=row.querySelector(".stock")
 
-// DEFICIT CALCULATION + COLOR LOGIC
+stockInput.disabled=false
+stockInput.focus()
+}
+
 
 function updateDeficit(){
 
@@ -75,22 +81,15 @@ let d=t-a
 deficit[i].innerText=d
 
 if(a<t){
-
 achieved[i].style.color="red"
-
 }else{
-
 achieved[i].style.color="green"
-
 }
 
 }
 
 }
 
-
-
-// SUBMIT SALES FUNCTION
 
 async function submitSales(){
 
@@ -111,7 +110,6 @@ achieved[i].innerText=total
 arr.push(total)
 
 inputs[i].value=""
-
 }
 
 updateDeficit()
@@ -123,11 +121,23 @@ alert("Sales Updated Successfully")
 }
 
 
+async function submitStock(){
 
-// PAGE LOAD INITIAL CALCULATION
+let stockInputs=document.querySelectorAll(".stock")
+
+let arr=[]
+
+for(let i=0;i<stockInputs.length;i++){
+arr.push(parseInt(stockInputs[i].value || 0))
+}
+
+await fetch(API_URL+"?action=stock&row="+userRow+"&data="+JSON.stringify(arr))
+
+alert("Stock Updated Successfully")
+
+}
+
 
 window.onload=function(){
-
 updateDeficit()
-
 }

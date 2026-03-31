@@ -142,7 +142,16 @@ input.entry{
     border-radius:4px;
     text-align:center;
 }
+/* ================= STOCK INPUT ================= */
 
+.stock{
+    width:60px;
+    padding:5px;
+    border:1px solid #ccc;
+    border-radius:4px;
+    text-align:center;
+    background:#f9f9f9;
+}
 
 /* ================= COLORS ================= */
 

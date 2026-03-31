@@ -123,20 +123,17 @@ alert("Sales Updated Successfully")
 
 async function submitStock(){
 
-let stockInputs=document.querySelectorAll(".stock")
-
+let stock=document.querySelectorAll(".stock")
 let arr=[]
 
-for(let i=0;i<stockInputs.length;i++){
-arr.push(parseInt(stockInputs[i].value || 0))
+for(let i=0;i<stock.length;i++){
+arr.push(parseInt(stock[i].value || 0))
 }
 
-await fetch(API_URL+"?action=stock&row="+userRow+"&data="+JSON.stringify(arr))
+await fetch(API_URL+"?action=stock&emp="+document.getElementById("empCode").innerText+"&data="+JSON.stringify(arr))
 
 alert("Stock Updated Successfully")
-
 }
-
 
 window.onload=function(){
 updateDeficit()

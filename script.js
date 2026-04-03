@@ -187,3 +187,44 @@ updateDeficit()
 .slide-btn:hover{
   background:#ff4b5c;
 }
+/* ================= SLIDER ================= */
+
+const slider = document.getElementById("slider");
+const slides = document.querySelectorAll(".slide");
+
+let slideIndex = 0;
+
+function showSlide(i){
+  if(!slider) return;
+
+  if(i < 0) slideIndex = slides.length - 1;
+  else if(i >= slides.length) slideIndex = 0;
+  else slideIndex = i;
+
+  slider.style.transform = `translateX(-${slideIndex * 100}%)`;
+}
+
+function nextSlide(){
+  showSlide(slideIndex + 1);
+  resetAuto();
+}
+
+function prevSlide(){
+  showSlide(slideIndex - 1);
+  resetAuto();
+}
+
+// Auto slide
+let autoSlideInterval;
+
+function startAutoSlide(){
+  autoSlideInterval = setInterval(()=> nextSlide(), 3000);
+}
+
+function resetAuto(){
+  clearInterval(autoSlideInterval);
+  startAutoSlide();
+}
+
+// Start after page load
+window.addEventListener("load", startAutoSlide);

@@ -138,3 +138,52 @@ alert("Stock Updated Successfully")
 window.onload=function(){
 updateDeficit()
 }
+/* ================= IMAGE SLIDER ================= */
+
+.image-slider{
+  position:relative;
+  width:100%;
+  max-width:500px;
+  margin:30px auto;
+  overflow:hidden;
+  border-radius:15px;
+  box-shadow:0 0 15px rgba(255,75,92,0.5);
+}
+
+.slider-wrapper{
+  display:flex;
+  transition:transform 0.5s ease-in-out;
+}
+
+.slide{
+  min-width:100%;
+  text-align:center;
+  background:#000;
+}
+
+.slide img{
+  width:100%;
+  height:250px;
+  object-fit:contain;
+}
+
+/* Buttons */
+.slide-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.6);
+  border:none;
+  color:white;
+  font-size:25px;
+  padding:5px 10px;
+  cursor:pointer;
+  border-radius:50%;
+}
+
+.prev{ left:10px; }
+.next{ right:10px; }
+
+.slide-btn:hover{
+  background:#ff4b5c;
+}

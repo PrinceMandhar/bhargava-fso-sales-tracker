@@ -140,21 +140,36 @@ updateDeficit()
 }
 
 
-/* ===== AUTO SLIDER ===== */
+/* ===== SLIDER SCRIPT ===== */
 
-let currentSlide = 0;
-const slides = document.querySelectorAll(".slide");
+let index = 0;
 const track = document.getElementById("sliderTrack");
+const slides = document.querySelectorAll(".slide");
 
-function moveSlider(){
-  currentSlide++;
-
-  if(currentSlide >= slides.length){
-    currentSlide = 0;
-  }
-
-  track.style.transform = "translateX(-" + (currentSlide * 100) + "%)";
+/* Update Slide */
+function updateSlider(){
+  track.style.transform = "translateX(-" + (index * 100) + "%)";
 }
 
-/* AUTO PLAY */
-setInterval(moveSlider, 3000);
+/* Next */
+function nextSlide(){
+  index++;
+  if(index >= slides.length){
+    index = 0;
+  }
+  updateSlider();
+}
+
+/* Prev */
+function prevSlide(){
+  index--;
+  if(index < 0){
+    index = slides.length - 1;
+  }
+  updateSlider();
+}
+
+/* Auto Slide */
+setInterval(() => {
+  nextSlide();
+}, 3000);

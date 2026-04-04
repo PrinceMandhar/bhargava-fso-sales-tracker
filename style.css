@@ -345,3 +345,36 @@ input.entry{
     max-height:200px;
   }
 }
+
+
+/* ===== DOWNLOAD SECTION ===== */
+
+.download-section{
+  text-align:center;
+  padding:50px 20px;
+  background:#111;
+  color:#fff;
+}
+
+.download-section h2{
+  margin-bottom:20px;
+  font-size:24px;
+}
+
+/* BUTTON */
+.download-btn{
+  display:inline-block;
+  padding:12px 25px;
+  background:#ff4b5c;
+  color:#fff;
+  text-decoration:none;
+  border-radius:30px;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.download-btn:hover{
+  background:#e63b4a;
+  transform:scale(1.05);
+}
+

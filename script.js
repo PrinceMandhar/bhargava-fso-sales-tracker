@@ -138,51 +138,23 @@ alert("Stock Updated Successfully")
 window.onload=function(){
 updateDeficit()
 }
-/* ===== CUSTOM SLIDER ===== */
 
-.custom-slider{
-  width:100%;
-  margin:40px auto;
-  overflow:hidden;
-}
 
-.slider-container{
-  width:100%;
-  position:relative;
-}
+/* ===== AUTO SLIDER ===== */
 
-.slider-track{
-  display:flex;
-  width:500%;
-  transition:transform 0.6s ease-in-out;
-}
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+const track = document.getElementById("sliderTrack");
 
-.slide{
-  width:100%;
-  flex-shrink:0;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:#000;
-  height:250px;
-}
+function moveSlider(){
+  currentSlide++;
 
-.slide img{
-  width:100%;
-  height:100%;
-  object-fit:cover; /* IMPORTANT: image fit */
-}
-
-/* Logo special slide */
-.logo-slide{
-  object-fit:contain !important;
-  padding:20px;
-  background:#fff;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  .slide{
-    height:180px;
+  if(currentSlide >= slides.length){
+    currentSlide = 0;
   }
+
+  track.style.transform = "translateX(-" + (currentSlide * 100) + "%)";
 }
+
+/* AUTO PLAY */
+setInterval(moveSlider, 3000);

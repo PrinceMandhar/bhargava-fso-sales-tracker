@@ -6,9 +6,8 @@ let userRow = null;
 // ================= LOGIN =================
 async function login(){
 
-let name = document.getElementById("name").value
-let emp = document.getElementById("emp").value
-
+let name = encodeURIComponent(document.getElementById("name").value)
+let emp = encodeURIComponent(document.getElementById("emp").value)
 let res = await fetch(API_URL+"?action=login&name="+name+"&emp="+emp)
 let data = await res.json()
 

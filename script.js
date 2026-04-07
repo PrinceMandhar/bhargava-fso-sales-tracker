@@ -1,5 +1,5 @@
 // GOOGLE APPS SCRIPT WEB APP URL
-const API_URL = "https://script.google.com/macros/s/AKfycbz3mUf7n0Ls3KRWQmCx2WugrmvFv6ZzHnICEFhixW5fNlzsNlGphSxlKqm01YFsnz3n/exec"
+const API_URL = "https://script.google.com/macros/s/AKfycbyce_NtZ8ggOdGsDWsuKsOcrSqqe42BJ25mt_-kMvyYg1XiHWVgRo-w2JAH7-C8Wr3hFg/exec"
 
 let userRow = null;
 

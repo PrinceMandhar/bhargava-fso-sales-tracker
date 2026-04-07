@@ -38,7 +38,14 @@ function loadAchieved(sales){
 let achieved = document.querySelectorAll(".achieved")
 
 for(let i=0;i<achieved.length;i++){
-achieved[i].innerText = sales[i] || 0
+
+let val = sales[i] || 0
+
+achieved[i].innerText = val
+
+// store original value (IMPORTANT)
+achieved[i].setAttribute("data-base", val)
+
 }
 
 updateDeficit()
@@ -94,7 +101,7 @@ achieved[i].style.color="green"
 
 }
 
-// ================= MAIN CALCULATION =================
+// ================= LIVE CALCULATION (ENTRY + STOCK) =================
 function calculateRow(input){
 
 let row = input.closest("tr")
@@ -102,20 +109,24 @@ let row = input.closest("tr")
 let entry = parseInt(row.querySelector(".entry").value) || 0
 let stock = parseInt(row.querySelector(".stock").value) || 0
 
-let achieved = row.querySelector(".achieved")
+let achievedEl = row.querySelector(".achieved")
+let baseAchieved = parseInt(achievedEl.getAttribute("data-base")) || 0
+
 let target = parseInt(row.querySelector(".target").innerText)
 let deficit = row.querySelector(".deficit")
 let stockAvailable = row.querySelector(".stock-available")
 
-// achieved live update
-achieved.innerText = entry
+// preview = old + entry
+let newAchieved = baseAchieved + entry
+
+achievedEl.innerText = newAchieved
 
 // deficit update
-deficit.innerText = target - entry
+deficit.innerText = target - newAchieved
 
-// stock available
+// stock available update
 if(stockAvailable){
-stockAvailable.innerText = stock - entry
+stockAvailable.innerText = stock - newAchieved
 }
 
 }
@@ -129,7 +140,9 @@ rows.forEach((row,index)=>{
 
 if(index===0) return
 
-let achieved = parseInt(row.querySelector(".achieved")?.innerText) || 0
+let achievedEl = row.querySelector(".achieved")
+let achieved = parseInt(achievedEl?.innerText) || 0
+
 let stock = parseInt(row.querySelector(".stock")?.value) || 0
 
 let stockAvailable = row.querySelector(".stock-available")
@@ -145,24 +158,31 @@ stockAvailable.innerText = stock - achieved
 // ================= SUBMIT SALES =================
 async function submitSales(){
 
-let inputs = document.querySelectorAll(".entry")
-let achieved = document.querySelectorAll(".achieved")
-
+let rows = document.querySelectorAll("table tr")
 let arr = []
 
-for(let i=0;i<inputs.length;i++){
+rows.forEach((row,index)=>{
 
-let add = parseInt(inputs[i].value || 0)
-let old = parseInt(achieved[i].innerText || 0)
+if(index===0) return
 
-let total = old + add
+let entryInput = row.querySelector(".entry")
+let achievedEl = row.querySelector(".achieved")
 
-achieved[i].innerText = total
+let entry = parseInt(entryInput.value) || 0
+let base = parseInt(achievedEl.getAttribute("data-base")) || 0
 
-arr.push(total)
+let finalVal = base + entry
 
-inputs[i].value = ""
-}
+// permanent update
+achievedEl.innerText = finalVal
+achievedEl.setAttribute("data-base", finalVal)
+
+arr.push(finalVal)
+
+// clear entry
+entryInput.value = ""
+
+})
 
 updateDeficit()
 updateAllStockAvailable()
@@ -188,6 +208,7 @@ await fetch(API_URL+"?action=stock&emp="+document.getElementById("empCode").inne
 updateAllStockAvailable()
 
 alert("Stock Updated Successfully")
+
 }
 
 // ================= PAGE LOAD =================

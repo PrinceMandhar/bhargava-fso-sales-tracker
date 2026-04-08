@@ -1,7 +1,8 @@
 const API_URL = "https://script.google.com/macros/s/AKfycbz9SO55R0YJ1mR_FNXRPUb4IZldb3OH-rwHkirdj_6zMACr5yjxv30KihxYnakkfzkkDg/exec"
 
-let userRow = null;
 
+
+let userRow = null
 
 // ================= LOGIN =================
 async function login(){
@@ -56,6 +57,15 @@ updateAll()
 }
 
 
+// ================= EDIT STOCK =================
+function enableStockEdit(btn){
+let row = btn.closest("tr")
+let input = row.querySelector(".stock")
+input.disabled = false
+input.focus()
+}
+
+
 // ================= CALCULATION =================
 function calculateRow(input){
 
@@ -73,19 +83,14 @@ let preview = achieved + entry
 row.querySelector(".deficit").innerText = target - preview
 
 // achieved color
-if(preview >= target){
-row.querySelector(".achieved").style.color="green"
-}else{
-row.querySelector(".achieved").style.color="red"
-}
+row.querySelector(".achieved").style.color = (preview>=target)?"green":"red"
 
 // stock available
 let available = stock - preview - dist
 
 let cell = row.querySelector(".stock-available")
 cell.innerText = available
-
-cell.style.color = (available < 0) ? "red" : "green"
+cell.style.color = (available<0)?"red":"green"
 }
 
 
@@ -111,15 +116,14 @@ row.querySelector(".achieved").style.color = (achieved>=target)?"green":"red"
 let available = stock - achieved - dist
 
 let cell = row.querySelector(".stock-available")
-
 cell.innerText = available
-cell.style.color = (available < 0) ? "red" : "green"
+cell.style.color = (available<0)?"red":"green"
 
 })
 }
 
 
-// ================= SUBMIT =================
+// ================= SUBMIT SALES =================
 async function submitSales(){
 
 let entries = document.querySelectorAll(".entry")
@@ -136,28 +140,28 @@ let dist  = parseInt(dists[i].value)||0
 let old   = parseInt(achieved[i].innerText)||0
 
 let newAch = old + entry
-let newDist = dist // already full value stored
 
 achieved[i].innerText = newAch
 
 salesArr.push(newAch)
-distArr.push(newDist)
+distArr.push(dist)
 
 entries[i].value=""
 }
 
-// update UI
 updateAll()
 
-// save
+// SAVE SALES
 await fetch(API_URL+"?action=submit&row="+userRow+"&data="+JSON.stringify(salesArr))
+
+// SAVE DISTRIBUTOR
 await fetch(API_URL+"?action=dist&emp="+document.getElementById("empCode").innerText+"&data="+JSON.stringify(distArr))
 
 alert("Saved Successfully")
 }
 
 
-// ================= STOCK =================
+// ================= STOCK SAVE =================
 async function submitStock(){
 
 let stock = document.querySelectorAll(".stock")
@@ -173,6 +177,34 @@ updateAll()
 
 alert("Stock Updated")
 }
+
+
+// ================= SLIDER =================
+let index = 0
+
+function updateSlider(){
+const track = document.getElementById("sliderTrack")
+track.style.transform = "translateX(-"+(index*100)+"%)"
+}
+
+function nextSlide(){
+const slides = document.querySelectorAll(".slide")
+index++
+if(index>=slides.length) index=0
+updateSlider()
+}
+
+function prevSlide(){
+const slides = document.querySelectorAll(".slide")
+index--
+if(index<0) index=slides.length-1
+updateSlider()
+}
+
+// AUTO SLIDE (4 sec)
+setInterval(()=>{
+nextSlide()
+},4000)
 
 
 // ================= INIT =================

@@ -1,13 +1,15 @@
-// GOOGLE APPS SCRIPT WEB APP URL
-const API_URL = "https://script.google.com/macros/s/AKfycbyce_NtZ8ggOdGsDWsuKsOcrSqqe42BJ25mt_-kMvyYg1XiHWVgRo-w2JAH7-C8Wr3hFg/exec"
+// ================= API =================
+const API_URL = "https://script.google.com/macros/s/AKfycbzUjj3ANQ0DdffWfqT5uq67fBebj2xcrrgc2wIZ-t2SN3tXoWF9Aqra_I2ZEXkLuVS78Q/exec"
 
 let userRow = null;
+
 
 // ================= LOGIN =================
 async function login(){
 
-let name = encodeURIComponent(document.getElementById("name").value)
-let emp = encodeURIComponent(document.getElementById("emp").value)
+let name = document.getElementById("name").value
+let emp = document.getElementById("emp").value
+
 let res = await fetch(API_URL+"?action=login&name="+name+"&emp="+emp)
 let data = await res.json()
 
@@ -24,6 +26,7 @@ document.getElementById("hq").innerText=data.hq
 
 loadAchieved(data.sales)
 loadStock(data.stock)
+loadDistributor(data.dist) // NEW
 
 }else{
 alert("Invalid Login")
@@ -31,26 +34,21 @@ alert("Invalid Login")
 
 }
 
+
 // ================= LOAD ACHIEVED =================
 function loadAchieved(sales){
 
 let achieved = document.querySelectorAll(".achieved")
 
 for(let i=0;i<achieved.length;i++){
-
-let val = sales[i] || 0
-
-achieved[i].innerText = val
-
-// store original value (IMPORTANT)
-achieved[i].setAttribute("data-base", val)
-
+achieved[i].innerText = sales[i] || 0
 }
 
 updateDeficit()
 updateAllStockAvailable()
 
 }
+
 
 // ================= LOAD STOCK =================
 function loadStock(stock){
@@ -65,6 +63,21 @@ updateAllStockAvailable()
 
 }
 
+
+// ================= LOAD DISTRIBUTOR =================
+function loadDistributor(dist){
+
+let distInputs = document.querySelectorAll(".dist-entry")
+
+for(let i=0;i<distInputs.length;i++){
+distInputs[i].value = dist[i] || 0
+}
+
+updateAllStockAvailable()
+
+}
+
+
 // ================= ENABLE STOCK EDIT =================
 function enableStockEdit(btn){
 let row = btn.parentElement.parentElement
@@ -74,7 +87,8 @@ stockInput.disabled = false
 stockInput.focus()
 }
 
-// ================= DEFICIT UPDATE =================
+
+// ================= DEFICIT =================
 function updateDeficit(){
 
 let targets = document.querySelectorAll(".target")
@@ -83,8 +97,8 @@ let deficit = document.querySelectorAll(".deficit")
 
 for(let i=0;i<targets.length;i++){
 
-let t = parseInt(targets[i].innerText)
-let a = parseInt(achieved[i].innerText)
+let t = parseInt(targets[i].innerText) || 0
+let a = parseInt(achieved[i].innerText) || 0
 
 let d = t - a
 
@@ -100,37 +114,44 @@ achieved[i].style.color="green"
 
 }
 
-// ================= LIVE CALCULATION (ENTRY + STOCK) =================
+
+// ================= LIVE CALCULATION =================
 function calculateRow(input){
 
 let row = input.closest("tr")
 
 let entry = parseInt(row.querySelector(".entry").value) || 0
+let dist  = parseInt(row.querySelector(".dist-entry").value) || 0
 let stock = parseInt(row.querySelector(".stock").value) || 0
 
-let achievedEl = row.querySelector(".achieved")
-let baseAchieved = parseInt(achievedEl.getAttribute("data-base")) || 0
+let achieved = parseInt(row.querySelector(".achieved").innerText) || 0
+let target = parseInt(row.querySelector(".target").innerText) || 0
 
-let target = parseInt(row.querySelector(".target").innerText)
 let deficit = row.querySelector(".deficit")
 let stockAvailable = row.querySelector(".stock-available")
 
-// preview = old + entry
-let newAchieved = baseAchieved + entry
+// preview achieved
+let previewAchieved = achieved + entry
 
-achievedEl.innerText = newAchieved
+// update deficit
+deficit.innerText = target - previewAchieved
 
-// deficit update
-deficit.innerText = target - newAchieved
+// stock available = stock - achieved - distributor
+let available = stock - previewAchieved - dist
 
-// stock available update
-if(stockAvailable){
-stockAvailable.innerText = stock - newAchieved
+stockAvailable.innerText = available
+
+// color
+if(available < 0){
+stockAvailable.style.color = "red"
+}else{
+stockAvailable.style.color = "green"
 }
 
 }
 
-// ================= UPDATE ALL STOCK AVAILABLE =================
+
+// ================= UPDATE ALL =================
 function updateAllStockAvailable(){
 
 let rows = document.querySelectorAll("table tr")
@@ -139,58 +160,69 @@ rows.forEach((row,index)=>{
 
 if(index===0) return
 
-let achievedEl = row.querySelector(".achieved")
-let achieved = parseInt(achievedEl?.innerText) || 0
-
+let achieved = parseInt(row.querySelector(".achieved")?.innerText) || 0
+let dist  = parseInt(row.querySelector(".dist-entry")?.value) || 0
 let stock = parseInt(row.querySelector(".stock")?.value) || 0
 
 let stockAvailable = row.querySelector(".stock-available")
 
 if(stockAvailable){
-stockAvailable.innerText = stock - achieved
+
+let available = stock - achieved - dist
+
+stockAvailable.innerText = available
+
+if(available < 0){
+stockAvailable.style.color = "red"
+}else{
+stockAvailable.style.color = "green"
+}
+
 }
 
 })
 
 }
+
 
 // ================= SUBMIT SALES =================
 async function submitSales(){
 
-let rows = document.querySelectorAll("table tr")
-let arr = []
+let entryInputs = document.querySelectorAll(".entry")
+let distInputs  = document.querySelectorAll(".dist-entry")
+let achieved    = document.querySelectorAll(".achieved")
 
-rows.forEach((row,index)=>{
+let salesArr = []
+let distArr  = []
 
-if(index===0) return
+for(let i=0;i<entryInputs.length;i++){
 
-let entryInput = row.querySelector(".entry")
-let achievedEl = row.querySelector(".achieved")
+let entry = parseInt(entryInputs[i].value) || 0
+let dist  = parseInt(distInputs[i].value) || 0
+let old   = parseInt(achieved[i].innerText) || 0
 
-let entry = parseInt(entryInput.value) || 0
-let base = parseInt(achievedEl.getAttribute("data-base")) || 0
+let total = old + entry
 
-let finalVal = base + entry
+achieved[i].innerText = total
 
-// permanent update
-achievedEl.innerText = finalVal
-achievedEl.setAttribute("data-base", finalVal)
+salesArr.push(total)
+distArr.push(dist)
 
-arr.push(finalVal)
-
-// clear entry
-entryInput.value = ""
-
-})
+entryInputs[i].value = ""
+distInputs[i].value = ""
+}
 
 updateDeficit()
 updateAllStockAvailable()
 
-await fetch(API_URL+"?action=submit&row="+userRow+"&data="+JSON.stringify(arr))
+// SAVE BOTH
+await fetch(API_URL+"?action=submit&row="+userRow+"&data="+JSON.stringify(salesArr))
+await fetch(API_URL+"?action=dist&emp="+document.getElementById("empCode").innerText+"&data="+JSON.stringify(distArr))
 
-alert("Sales Updated Successfully")
+alert("Sales + Distributor Saved")
 
 }
+
 
 // ================= SUBMIT STOCK =================
 async function submitStock(){
@@ -206,15 +238,17 @@ await fetch(API_URL+"?action=stock&emp="+document.getElementById("empCode").inne
 
 updateAllStockAvailable()
 
-alert("Stock Updated Successfully")
+alert("Stock Updated")
 
 }
+
 
 // ================= PAGE LOAD =================
 window.onload=function(){
 updateDeficit()
 updateAllStockAvailable()
 }
+
 
 // ================= SLIDER =================
 let index = 0;

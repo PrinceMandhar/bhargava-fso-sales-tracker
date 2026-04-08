@@ -32,13 +32,15 @@
 <p><b>HQ:</b> <span id="hq"></span></p>
 </div>
 
+<!-- ROW TEMPLATE -->
+
+
 <table>
 <tr>
 <th>S.No</th>
 <th style="width:180px">Product</th>
 <th>Target</th>
 <th>Achieved</th>
-<th>try</th>
 <th>Deficit</th>
 <th>Your Sales Entry</th>
 <th>Dist.Entry</th>
@@ -47,14 +49,11 @@
 <th>Action</th>
 </tr>
 
-<!-- ROW TEMPLATE -->
-<!-- COPY SAME FORMAT -->
-
+<!-- ROW 1 -->
 <tr>
 <td>1</td><td>SPONDIN 30ML</td>
 <td class="target">626</td>
 <td class="achieved">0</td>
-<td class="dist-sale">0</td>
 <td class="deficit">0</td>
 <td><input type="number" class="entry" oninput="calculateRow(this)"></td>
 <td><input type="number" class="dist-entry" oninput="calculateRow(this)"></td>
@@ -63,43 +62,45 @@
 <td><button onclick="enableStockEdit(this)">Edit</button></td>
 </tr>
 
-<tr><td>2</td><td>TUMORIN 30ML</td><td class="target">144</td><td class="achieved">0</td><td class="dist-sale">0</td><td class="deficit">0</td><td><input type="number" class="entry" oninput="calculateRow(this)"></td><td><input type="number" class="dist-entry" oninput="calculateRow(this)"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled oninput="calculateRow(this)"></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
+<!-- COPY SAME FORMAT BELOW -->
 
-<tr><td>3</td><td>Garcinia Cambogia</td><td class="target">144</td><td class="achieved">0</td><td class="dist-sale">0</td><td class="deficit">0</td><td><input type="number" class="entry" oninput="calculateRow(this)"></td><td><input type="number" class="dist-entry" oninput="calculateRow(this)"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
+<tr><td>2</td><td>TUMORIN 30ML</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">0</td><td><input type="number" class="entry" oninput="calculateRow(this)"></td><td><input type="number" class="dist-entry" oninput="calculateRow(this)"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
 
-<tr><td>4</td><td>Gas Off</td><td class="target">288</td><td class="achieved">0</td><td class="dist-sale">0</td><td class="deficit">0</td><td><input type="number" class="entry" oninput="calculateRow(this)"></td><td><input type="number" class="dist-entry" oninput="calculateRow(this)"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
+<tr><td>3</td><td>Garcinia Cambogia</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">0</td><td><input type="number" class="entry" oninput="calculateRow(this)"></td><td><input type="number" class="dist-entry" oninput="calculateRow(this)"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
 
-<tr><td>5</td><td>Kidflame</td><td class="target">144</td><td class="achieved">0</td><td class="dist-sale">0</td><td class="deficit">0</td><td><input type="number" class="entry" oninput="calculateRow(this)"></td><td><input type="number" class="dist-entry" oninput="calculateRow(this)"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
+<tr><td>4</td><td>Gas Off</td><td class="target">288</td><td class="achieved">0</td><td class="deficit">0</td><td><input type="number" class="entry" oninput="calculateRow(this)"></td><td><input type="number" class="dist-entry" oninput="calculateRow(this)"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
 
-<tr><td>6</td><td>DIACARDIAC GOLD PLUS</td><td class="target">400</td><td class="achieved">0</td><td class="dist-sale">0</td><td class="deficit">0</td><td><input type="number" class="entry" oninput="calculateRow(this)"></td><td><input type="number" class="dist-entry" oninput="calculateRow(this)"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
+<tr><td>5</td><td>Kidflame</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">0</td><td><input type="number" class="entry" oninput="calculateRow(this)"></td><td><input type="number" class="dist-entry" oninput="calculateRow(this)"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
 
-<tr><td>7</td><td>Meniphib</td><td class="target">144</td><td class="achieved">0</td><td class="dist-sale">0</td><td class="deficit">0</td><td><input type="number" class="entry" oninput="calculateRow(this)"></td><td><input type="number" class="dist-entry" oninput="calculateRow(this)"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
+<tr><td>6</td><td>DIACARDIAC GOLD PLUS</td><td class="target">400</td><td class="achieved">0</td><td class="deficit">0</td><td><input type="number" class="entry" oninput="calculateRow(this)"></td><td><input type="number" class="dist-entry" oninput="calculateRow(this)"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
 
-<tr><td>8</td><td>Osteo Strong</td><td class="target">144</td><td class="achieved">0</td><td class="dist-sale">0</td><td class="deficit">0</td><td><input type="number" class="entry" oninput="calculateRow(this)"></td><td><input type="number" class="dist-entry" oninput="calculateRow(this)"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
+<tr><td>7</td><td>Meniphib</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">0</td><td><input type="number" class="entry" oninput="calculateRow(this)"></td><td><input type="number" class="dist-entry" oninput="calculateRow(this)"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
 
-<tr><td>9</td><td>SCIAATI</td><td class="target">144</td><td class="achieved">0</td><td class="dist-sale">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
+<tr><td>8</td><td>Osteo Strong</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">0</td><td><input type="number" class="entry" oninput="calculateRow(this)"></td><td><input type="number" class="dist-entry" oninput="calculateRow(this)"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
 
-<tr><td>10</td><td>Artharal</td><td class="target">144</td><td class="achieved">0</td><td class="dist-sale">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
+<tr><td>9</td><td>SCIAATI</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
 
-<tr><td>11</td><td>Lumboral</td><td class="target">144</td><td class="achieved">0</td><td class="dist-sale">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
+<tr><td>10</td><td>Artharal</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
 
-<tr><td>12</td><td>Ague Nil</td><td class="target">144</td><td class="achieved">0</td><td class="dist-sale">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
+<tr><td>11</td><td>Lumboral</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
 
-<tr><td>13</td><td>Neuro-Fit Forte</td><td class="target">144</td><td class="achieved">0</td><td class="dist-sale">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
+<tr><td>12</td><td>Ague Nil</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
 
-<tr><td>14</td><td>ONSTI</td><td class="target">144</td><td class="achieved">0</td><td class="dist-sale">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
+<tr><td>13</td><td>Neuro-Fit Forte</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
 
-<tr><td>15</td><td>FRESH GEL</td><td class="target">144</td><td class="achieved">0</td><td class="dist-sale">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
+<tr><td>14</td><td>ONSTI</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
 
-<tr><td>16</td><td>MT 30ML</td><td class="target">1000</td><td class="achieved">0</td><td class="dist-sale">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
+<tr><td>15</td><td>FRESH GEL</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
 
-<tr><td>17</td><td>Ferroglob</td><td class="target">144</td><td class="achieved">0</td><td class="dist-sale">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
+<tr><td>16</td><td>MT 30ML</td><td class="target">1000</td><td class="achieved">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
 
-<tr><td>18</td><td>Aciset</td><td class="target">144</td><td class="achieved">0</td><td class="dist-sale">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
+<tr><td>17</td><td>Ferroglob</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
 
-<tr><td>19</td><td>ANGEL GLOSS</td><td class="target">144</td><td class="achieved">0</td><td class="dist-sale">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
+<tr><td>18</td><td>Aciset</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
 
-<tr><td>20</td><td>SKEDIN Drops</td><td class="target">144</td><td class="achieved">0</td><td class="dist-sale">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
+<tr><td>19</td><td>ANGEL GLOSS</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
+
+<tr><td>20</td><td>SKEDIN Drops</td><td class="target">144</td><td class="achieved">0</td><td class="deficit">0</td><td><input type="number" class="entry"></td><td><input type="number" class="dist-entry"></td><td class="stock-available">0</td><td><input type="number" class="stock" disabled></td><td><button onclick="enableStockEdit(this)">Edit</button></td></tr>
 
 </table>
 
